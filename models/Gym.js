@@ -4,6 +4,7 @@ const gymSchema = new mongoose.Schema({
     name : { type: String, required: true },
     location: String,
     contact: String,
+    logo: {type: String, default:"https://via.placeholder.com/150"},
     facilities: [String], //W przypadku Karmy i ClimbingSpot są 2 obiekty
     openingHours: String,
     routes:[
