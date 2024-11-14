@@ -2,6 +2,7 @@ const express = require('express');
 const connectDB = require('./config/db.js');
 const gymRoutes = require('./routes/gymRoutes.js');
 const userRoutes = require('./routes/userRoutes.js');
+const passport = require('./passportConfig.js');
 const auth = require('./routes/auth.js');
 const cors = require('cors');
 require('dotenv').config();
@@ -11,6 +12,7 @@ connectDB();
 
 app.use(cors({origin:'http://localhost:5173'}))
 app.use(express.json());
+app.use(passport.initialize());
 
 app.use('/api/gyms', gymRoutes);
 app.use('/api/users', userRoutes);
